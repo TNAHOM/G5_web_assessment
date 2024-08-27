@@ -5,6 +5,8 @@ import { BlogPost } from "@/utilis/types/BlogPostTypes";
 
 const BlogPage = async () => {
   const response = await fetchBlogs();
+  // const token = localStorage.getItem("token");
+  // console.log(token, "token");
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -21,14 +23,14 @@ const BlogPage = async () => {
           </div>
         </div>
         <div className="mt-10">
-            {response.slice(0, 6).map((blog: BlogPost) => (
-              <div key={blog._id}>
-                <hr />
-                <div className="py-7">
-                  <SingleJob blog={blog} />
-                </div>
+          {response.slice(0, 6).map((blog: BlogPost) => (
+            <div key={blog._id}>
+              <hr />
+              <div className="py-7">
+                <SingleJob blog={blog} />
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>

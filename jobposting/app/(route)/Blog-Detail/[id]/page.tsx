@@ -6,6 +6,7 @@ import fetchBlogById from "@/utilis/fetch/FetchBlogById";
 import { BlogPost } from "@/utilis/types/BlogPostTypes";
 import Image from "next/image";
 import BackButton from "@/components/Back/back";
+import Recent from "@/components/Blog/Recent";
 
 const BlogDetailPage: React.FC = () => {
   const params = useParams();
@@ -19,6 +20,7 @@ const BlogDetailPage: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetchBlogById(id);
+        console.log(response, 'respo')
         if (!response) {
           setError("Blog not found");
         } else {
@@ -91,6 +93,8 @@ const BlogDetailPage: React.FC = () => {
         <div className="mt-9">
           <p className="font-normal text-[32px]">{blog.description}</p>
         </div>
+
+        <Recent />
       </div>
     </div>
   );
