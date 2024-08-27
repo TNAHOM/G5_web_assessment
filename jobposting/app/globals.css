@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.usual-small{
+    @apply font-light text-[22px] space-y-10
+}
